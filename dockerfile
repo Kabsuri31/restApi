@@ -1,16 +1,14 @@
 FROM node:8.11.1
 
 # install dependencies
-WORKDIR /opt/rest-api
+WORKDIR /usr/src/nodejs-api
 COPY package.json package-lock.json* ./
-RUN npm cache clean --force && npm install
+RUN npm install
 
-# copy app source to image _after_ npm install so that
-# application code changes don't bust the docker cache of npm install step
-COPY . /opt/rest-api
+#copy code to container repo
+COPY . /usr/src/nodejs-api
 
 # set application PORT and expose docker PORT, 80 is what Elastic Beanstalk expects
-ENV PORT 80
-EXPOSE 80
+EXPOSE 3000
 
-CMD [ "npm", "run", "start" ]
+CMD [ "npm", "start" ]
