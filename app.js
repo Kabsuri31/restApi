@@ -18,7 +18,7 @@ app.use(morgan('dev'));
 
 
 app.use((req,res,next)=>{
-    res.header('Access-Allow-Control-Origin','*');
+    res.header('Access-Allow-Control-Origin','*,null');
     res.header('Access-Allow-Control-Headers','*');
     if(req.method==='OPTIONS')
     {
