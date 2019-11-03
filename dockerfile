@@ -11,4 +11,6 @@ COPY . /usr/src/nodejs-api
 # application port
 EXPOSE 3000
 
+#HELLO 
+
 CMD [ "npm", "start" ]
